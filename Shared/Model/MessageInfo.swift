@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MessageInfo:Codable,Identifiable {
+struct MessageInfo:Identifiable {
     let id = UUID()
     let userName:String
     let lastMessage:String

@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct ChatPage: View {
+    @State var tfMessage: String = ""
+    @AppStorage("current_user") var CUser = 1
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ScrollView{
+                VStack(){
+                    ForEach(dummyChats,id:\.id){ chat in
+                        ChatMessage(message: chat.text, avatar: chat.avatar,userId: chat.uid)
+                    }
+                }
+            }
+            
+            HStack{
+                TextField("Message", text: $tfMessage)
+                Image(systemName: "arrow.up.circle.fill")
+                    .resizable()
+                    .foregroundColor(Color.gray)
+                    .frame(width: 20, height: 20, alignment: .center)
+            }
+            .padding()
+            .background(Color.lightBlue.opacity(0.32))
+            .cornerRadius(15)
+            .padding(.horizontal)
+            .padding(.top)
+        }
+        .padding()
     }
 }
 

@@ -33,11 +33,11 @@ struct HomePage: View {
                 .padding(.top)
                 
                 Text("\(sfText)")
-                
+
                 List(dummyMList,id:\.id){ item in
-                        UserMessageInfo(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
+                    UserMessageInfo(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
                 }
-                .listRowInsets(.none)
+                    
             }
 //        })
     }
