@@ -19,8 +19,8 @@ struct ContentView: View {
         else if (shownPage == ShownPage.LoginPage){
             LoginPage()
         }
-        else {
-            Text("Hi there")
+        else if (shownPage == ShownPage.HomePage){
+            HomePage()
         }
     }
 }
@@ -34,5 +34,6 @@ struct ContentView_Previews: PreviewProvider {
 enum ShownPage: Int{
     case LoginPage  = 0
     case SignUpPage = 1
+    case HomePage = 2
 }
 
