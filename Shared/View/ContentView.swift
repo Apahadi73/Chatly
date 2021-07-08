@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+//  stores the info about the page shown on the app screen
+    @AppStorage("pageShown") var shownPage:ShownPage = ShownPage.SignUpPage
+    
     var body: some View {
-        LoginPage()
+        if (shownPage == ShownPage.SignUpPage){
+            SignUpPage()
+        }
+        else if (shownPage == ShownPage.LoginPage){
+            LoginPage()
+        }
+        else {
+            Text("Hi there")
+        }
     }
 }
 
@@ -18,3 +30,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+enum ShownPage: Int{
+    case LoginPage  = 0
+    case SignUpPage = 1
+}
+

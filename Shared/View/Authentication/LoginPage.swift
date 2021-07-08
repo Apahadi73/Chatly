@@ -9,9 +9,10 @@ import SwiftUI
 
 struct LoginPage: View {
 //  MARK- PROPERTIES
-    @State var name:String = ""
     @State var email:String = ""
     @State var password:String = ""
+    //  stores the info about the page shown on the app screen
+    @AppStorage("pageShown") var shownPage = ShownPage.LoginPage
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
@@ -21,22 +22,11 @@ struct LoginPage: View {
                 .resizable()
                 .frame(width: 150, height: 150, alignment: .center)
            
-            Text("Create an account")
+            Text("Login")
                 .font(.title)
                 .bold()
         
             VStack{
-                HStack{
-                    Image(systemName: "person")
-                        .resizable()
-                        .foregroundColor(Color.gray)
-                        .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    TextField("Full Name", text: $name)
-                }
-                .padding()
-                .background(Color.lightBlue.opacity(0.32))
-                .cornerRadius(15)
-
                 HStack{
                     Image(systemName: "envelope")
                         .resizable()
@@ -53,16 +43,16 @@ struct LoginPage: View {
                         .resizable()
                         .foregroundColor(Color.gray)
                         .frame(width: 20, height: 20, alignment: .center)
-                    TextField("Password", text: $password)
+                    SecureField("Password", text: $password)
                 }
                 .padding()
                 .background(Color.lightBlue.opacity(0.32))
                 .cornerRadius(15)
                 
                 Button(action: {
-                    print("Create Button Clicked")
+                    print("Login Clicked")
                 }, label: {
-                    Text("Create an Account")
+                    Text("Login")
                         .font(.headline)
                         .frame(maxWidth:.infinity)
                         .foregroundColor(.white)
@@ -72,14 +62,13 @@ struct LoginPage: View {
                 })
                 
                 HStack{
-                    Text("Already have an account?")
+                    Text("Don't have an account?")
                     Button(action: {
-                        print("Login btn Clicked")
+                        shownPage = ShownPage.SignUpPage
                     }, label: {
-                        Text("Login")
-                            .font(.headline)
-                            .cornerRadius(15)
+                        Text("Sign Up")
                     })
+                    .padding()
                 }
                 .padding()
                 
@@ -110,7 +99,6 @@ struct LoginPage: View {
         })//-VStack
         .padding()
         .ignoresSafeArea(.all)
-        
     }
 }
 
