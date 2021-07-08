@@ -12,21 +12,43 @@ struct ChatPage: View {
     @AppStorage("current_user") var CUser = 1
     
     var body: some View {
-        VStack{
-            ScrollView{
-                VStack(){
-                    ForEach(dummyChats,id:\.id){ chat in
-                        ChatMessage(message: chat.text, avatar: chat.avatar,userId: chat.uid)
+        VStack(spacing:0){
+            HStack() {
+                Spacer(minLength: 0)
+                Text("User \(CUser)")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                    .padding(.bottom,8)
+                Spacer(minLength: 0)
+            }
+            .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
+            .background(Color.darkBlue)
+            .edgesIgnoringSafeArea(.top)
+
+            
+            ScrollViewReader{ reader in
+                ScrollView{
+                    VStack(){
+                        ForEach(dummyChats,id:\.id){ chat in
+                            ChatMessage(message: chat.text, avatar: chat.avatar,userId: chat.uid)
+                        }
                     }
                 }
             }
             
             HStack{
                 TextField("Message", text: $tfMessage)
-                Image(systemName: "arrow.up.circle.fill")
-                    .resizable()
-                    .foregroundColor(Color.gray)
-                    .frame(width: 20, height: 20, alignment: .center)
+                if(tfMessage != ""){
+                    Button(action: {
+                        print("\(tfMessage)")
+                    }, label: {
+                        Image(systemName: "paperplane.fill")
+                            .resizable()
+                            .foregroundColor(Color.green)
+                            .frame(width: 25, height: 25, alignment: .center)
+                    })
+                }
             }
             .padding()
             .background(Color.lightBlue.opacity(0.32))
@@ -34,7 +56,6 @@ struct ChatPage: View {
             .padding(.horizontal)
             .padding(.top)
         }
-        .padding()
     }
 }
 
