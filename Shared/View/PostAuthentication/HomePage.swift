@@ -27,7 +27,7 @@ struct HomePage: View {
                             .foregroundColor(.white)
                             .padding(.bottom,8)
                             .padding(.leading,16)
-                    })
+                    }) //-Button
                     Spacer(minLength: 0)
                     Text("Home")
                         .font(.title)
@@ -41,8 +41,8 @@ struct HomePage: View {
                         Text("Logout")
                             .foregroundColor(.white)
                             .padding()
-                    })
-                }
+                    })//-Button
+                } //-HStack
                 .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
                 .background(Color.darkBlue)
                 .edgesIgnoringSafeArea(.top)
@@ -55,12 +55,16 @@ struct HomePage: View {
                     TextField("Search", text: $sfText)
                         .onChange(of: sfText) {
                             print($0)
-                            messageList = dummyMList.filter { messageInfo in
-                                messageInfo.userName.contains(sfText)
+                            if(messageList.count>=0){
+                                messageList = dummyMList.filter { messageInfo in
+                                    messageInfo.userName.contains(sfText)
+                                }
+                            }
+                            else {
+                                messageList = dummyMList
                             }
                     }
-
-                }
+                }//-HStack
                 .padding()
                 .background(Color.lightBlue.opacity(0.32))
                 .cornerRadius(15)
@@ -73,12 +77,12 @@ struct HomePage: View {
                         label: {
                             UserMessageInfo(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
                         })
-                }
-            }
+                }//-List
+            } //-VStack
             .navigationBarHidden(true)
             .navigationTitle("")
             .edgesIgnoringSafeArea([.top,.bottom])
-        }
+        }//- NavigationView
     }
 }
 

@@ -44,7 +44,7 @@ struct ChatMessage: View {
                     .frame(height:40)
                     .clipShape(Circle())
             }
-        }
+        } //-HStack
         
     }
 }
