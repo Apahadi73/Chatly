@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomePage: View {
     @State var sfText: String = ""
+    @State var messageList: [MessageInfo] = dummyMList
     @AppStorage("pageShown") var shownPage = ShownPage.HomePage
     
     var body: some View {
@@ -38,6 +39,7 @@ struct HomePage: View {
                         shownPage = ShownPage.SignUpPage
                     }, label: {
                         Text("Logout")
+                            .foregroundColor(.white)
                             .padding()
                     })
                 }
@@ -51,6 +53,13 @@ struct HomePage: View {
                         .foregroundColor(Color.gray)
                         .frame(width: 20, height: 20, alignment: .center)
                     TextField("Search", text: $sfText)
+                        .onChange(of: sfText) {
+                            print($0)
+                            messageList = dummyMList.filter { messageInfo in
+                                messageInfo.userName.contains(sfText)
+                            }
+                    }
+
                 }
                 .padding()
                 .background(Color.lightBlue.opacity(0.32))
@@ -58,9 +67,7 @@ struct HomePage: View {
                 .padding(.horizontal)
                 .padding(.top)
 
-                Text("\(sfText)")
-
-                List(dummyMList,id:\.id){ item in
+                List(messageList,id:\.id){ item in
                     NavigationLink(
                         destination: ChatPage(),
                         label: {

@@ -10,10 +10,20 @@ import SwiftUI
 struct ChatPage: View {
     @State var tfMessage: String = ""
     @AppStorage("current_user") var CUser = 1
+    @AppStorage("pageShown") var shownPage = ShownPage.ChatPage
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack(spacing:0){
             HStack() {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Back")
+                        .fontWeight(.light)
+                        .foregroundColor(.white)
+                        .padding(.leading,16)
+                })
                 Spacer(minLength: 0)
                 Text("User \(CUser)")
                     .font(.title)
@@ -36,6 +46,7 @@ struct ChatPage: View {
                     }
                 }
             }
+            .padding()
             
             HStack{
                 TextField("Message", text: $tfMessage)
@@ -56,6 +67,10 @@ struct ChatPage: View {
             .padding(.horizontal)
             .padding(.top)
         }
+//      removes navbar from the top
+        .navigationBarHidden(true)
+        .navigationTitle("")
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

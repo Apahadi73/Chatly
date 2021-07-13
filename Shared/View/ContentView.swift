@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
 //  stores the info about the page shown on the app screen
     @AppStorage("pageShown") var shownPage:ShownPage = ShownPage.SignUpPage
     
@@ -35,5 +34,6 @@ enum ShownPage: Int{
     case LoginPage  = 0
     case SignUpPage = 1
     case HomePage = 2
+    case ChatPage = 3
 }
 
