@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginPage: View {
 //  MARK- PROPERTIES
     @State var email:String = ""
     @State var password:String = ""
+    @State var alertMessage:String = ""
+    @State private var showingAlert = false
     //  stores the info about the page shown on the app screen
     @AppStorage("pageShown") var shownPage = ShownPage.LoginPage
     
@@ -51,7 +54,20 @@ struct LoginPage: View {
                     .cornerRadius(15)
                     
                     Button(action: {
-                        shownPage = ShownPage.HomePage
+//                      signs in user using firebase authenticatinon
+                        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                            if error != nil{
+                                alertMessage = error?.localizedDescription ?? ""
+                                showingAlert = true
+                                print("Failed to login user user. Error message: \(error?.localizedDescription ?? "Error occured while authenticating user")")
+                            }
+                            if let user = authResult?.user {
+                                print("User created")
+                                print("UserId: \(user.uid))")
+//                                  takes user to the homepage
+                                shownPage = ShownPage.HomePage
+                            }
+                        }
                     }, label: {
                         Text("Login")
                             .font(.headline)
@@ -101,6 +117,9 @@ struct LoginPage: View {
             .padding()
             .ignoresSafeArea(.all)
         } //- Scrollview
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Log In Failed"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 

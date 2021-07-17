@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 //  stores the info about the page shown on the app screen
-    @AppStorage("pageShown") var shownPage:ShownPage = ShownPage.SignUpPage
+    @AppStorage("pageShown") var shownPage:ShownPage = ShownPage.LoginPage
     
     var body: some View {
         if (shownPage == ShownPage.SignUpPage){

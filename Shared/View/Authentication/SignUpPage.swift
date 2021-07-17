@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseDatabase
 
 struct SignUpPage: View {
     //  MARK- PROPERTIES
-        @State var name:String = ""
-        @State var email:String = ""
-        @State var password:String = ""
+    @State var name:String = ""
+    @State var email:String = ""
+    @State var password:String = ""
+    @State var alertMessage:String = ""
+    @State private var showingAlert = false
+    private var dbRef: DatabaseReference = Database.database().reference()
+    
     @AppStorage("pageShown") var shownPage = ShownPage.SignUpPage
         
         var body: some View {
@@ -29,6 +35,7 @@ struct SignUpPage: View {
                         .kerning(1.5)
                 
                     VStack{
+                        
                         HStack{
                             Image(systemName: "person")
                                 .resizable()
@@ -62,9 +69,35 @@ struct SignUpPage: View {
                         .background(Color.lightBlue.opacity(0.32))
                         .cornerRadius(15)
                         
-                        
                         Button(action: {
-                            shownPage = ShownPage.HomePage
+//                          creates user in firebase authentication
+                            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                                if let error = error {
+                                    alertMessage = error.localizedDescription
+                                    showingAlert = true
+                                    print("Failed to sign up user. Error: \(error.localizedDescription)")
+                                }
+                                if let user = authResult?.user {
+                                    print("User created")
+                                    print("UserId: \(user.uid))")
+//                                  stores userinfo in the realtime db
+                                    let data = [
+                                        "uid":user.uid,
+                                        "email":email,
+                                        "fullName":name
+                                    ]
+                                    dbRef.child("chatlyUsers").child(user.uid).child("usersInfo").setValue(data) { cError, cRef in
+                                        if let error = error {
+                                            print("Error: \(error.localizedDescription )")
+                                        }
+                                        else {
+                                            print("user info stored in the db")
+                                        }
+                                    }
+//                                  takes user to the homepage
+                                    shownPage = ShownPage.HomePage
+                                }
+                            }
                         }, label: {
                             Text("Sign Up")
                                 .font(.headline)
@@ -114,6 +147,9 @@ struct SignUpPage: View {
                 .ignoresSafeArea(.all)
                 
             }//ScrollView
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Sign Up Failed"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
         }
 }
 
