@@ -8,11 +8,9 @@
 import Foundation
 
 struct User : Codable {
-    var userName: String
-    var fullName: String
-    var email: String
     var avatar: String
-    var friends: [String]
-    var chats:[String]
+    var email: String
+    var dateJoined: String
+    var uid: String
+    var userName: String
 }
-

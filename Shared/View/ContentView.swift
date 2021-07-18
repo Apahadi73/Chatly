@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 struct ContentView: View {
 //  stores the info about the page shown on the app screen
     @AppStorage("pageShown") var shownPage:ShownPage = ShownPage.LoginPage
-    
+    let user = Auth.auth().currentUser
     var body: some View {
         if (shownPage == ShownPage.SignUpPage){
             SignUpPage()
@@ -18,7 +18,7 @@ struct ContentView: View {
         else if (shownPage == ShownPage.LoginPage){
             LoginPage()
         }
-        else if (shownPage == ShownPage.HomePage){
+        else if (shownPage == ShownPage.HomePage && user != nil ){
             HomePage()
         }
     }

@@ -35,6 +35,14 @@
 		1A17E7A9269E084E00E8A7F8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A17E7A8269E084E00E8A7F8 /* FirebaseCrashlytics */; };
 		1A17E7AB269E084E00E8A7F8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A17E7AA269E084E00E8A7F8 /* FirebaseStorage */; };
 		1A17E7AD269E084E00E8A7F8 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1A17E7AC269E084E00E8A7F8 /* FirebaseFunctions */; };
+		1A17E7B026A383D900E8A7F8 /* UserProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7AF26A383D900E8A7F8 /* UserProfileInfo.swift */; };
+		1A17E7F626A387DE00E8A7F8 /* GlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7F526A387DE00E8A7F8 /* GlobalProperties.swift */; };
+		1A17E7F826A3896400E8A7F8 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7F726A3896400E8A7F8 /* FUser.swift */; };
+		1A17E7FA26A38D0B00E8A7F8 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7F926A38D0B00E8A7F8 /* LoadingSpinner.swift */; };
+		1A17E7FF26A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
+		1A17E80026A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
+		1A17E80126A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
+		1A17E80226A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
 		1A520E4D269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
 		1A520E4E269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
 		1A520E4F269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
@@ -105,6 +113,11 @@
 /* Begin PBXFileReference section */
 		1A17E77B2697A87500E8A7F8 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		1A17E780269DEFE000E8A7F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A17E7AF26A383D900E8A7F8 /* UserProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInfo.swift; sourceTree = "<group>"; };
+		1A17E7F526A387DE00E8A7F8 /* GlobalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProperties.swift; sourceTree = "<group>"; };
+		1A17E7F726A3896400E8A7F8 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
+		1A17E7F926A38D0B00E8A7F8 /* LoadingSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
+		1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1A520E4C269781CD00237D29 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		1A520E512697859400237D29 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		1A520E572697863800237D29 /* UserMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageInfo.swift; sourceTree = "<group>"; };
@@ -183,9 +196,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A17E7AE26A383C600E8A7F8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1A17E7AF26A383D900E8A7F8 /* UserProfileInfo.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		1A17E7F426A387C600E8A7F8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A17E7F526A387DE00E8A7F8 /* GlobalProperties.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		1A520E462697818500237D29 /* PostAuthentication */ = {
 			isa = PBXGroup;
 			children = (
+				1A17E7AE26A383C600E8A7F8 /* Profile */,
 				1A520E4C269781CD00237D29 /* HomePage.swift */,
 				1A520E5C2697969300237D29 /* ChatPage.swift */,
 			);
@@ -198,6 +228,7 @@
 				1A520E572697863800237D29 /* UserMessageInfo.swift */,
 				1A520E662697998100237D29 /* ChatMessage.swift */,
 				1A17E77B2697A87500E8A7F8 /* ChatBubble.swift */,
+				1A17E7F926A38D0B00E8A7F8 /* LoadingSpinner.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -217,6 +248,7 @@
 		1A56500D269674FA000F8151 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1A17E7F426A387C600E8A7F8 /* Utils */,
 				1A17E780269DEFE000E8A7F8 /* GoogleService-Info.plist */,
 				1A56505C2696804A000F8151 /* Extensions */,
 				1A56500E269674FA000F8151 /* ChatlyApp.swift */,
@@ -290,6 +322,7 @@
 				1A56504D26967A3F000F8151 /* User.swift */,
 				1A520E512697859400237D29 /* MessageInfo.swift */,
 				1A520E612697991700237D29 /* Chat.swift */,
+				1A17E7F726A3896400E8A7F8 /* FUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				1A56505D2696805B000F8151 /* Color.swift */,
+				1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +533,8 @@
 			files = (
 				1A56506426969D96000F8151 /* SignUpPage.swift in Sources */,
 				1A17E77C2697A87500E8A7F8 /* ChatBubble.swift in Sources */,
+				1A17E7B026A383D900E8A7F8 /* UserProfileInfo.swift in Sources */,
+				1A17E7FA26A38D0B00E8A7F8 /* LoadingSpinner.swift in Sources */,
 				1A56505826967C4D000F8151 /* LoginPage.swift in Sources */,
 				1A56503926967500000F8151 /* ContentView.swift in Sources */,
 				1A56503726967500000F8151 /* ChatlyApp.swift in Sources */,
@@ -507,9 +543,12 @@
 				1A520E622697991800237D29 /* Chat.swift in Sources */,
 				1A520E522697859400237D29 /* MessageInfo.swift in Sources */,
 				1A520E4D269781CD00237D29 /* HomePage.swift in Sources */,
+				1A17E7F826A3896400E8A7F8 /* FUser.swift in Sources */,
 				1A520E672697998100237D29 /* ChatMessage.swift in Sources */,
+				1A17E7FF26A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
 				1A520E582697863800237D29 /* UserMessageInfo.swift in Sources */,
 				1A56504E26967A3F000F8151 /* User.swift in Sources */,
+				1A17E7F626A387DE00E8A7F8 /* GlobalProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +568,7 @@
 				1A520E4E269781CD00237D29 /* HomePage.swift in Sources */,
 				1A520E682697998100237D29 /* ChatMessage.swift in Sources */,
 				1A520E592697863800237D29 /* UserMessageInfo.swift in Sources */,
+				1A17E80026A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
 				1A56504F26967A3F000F8151 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +581,7 @@
 				1A520E542697859400237D29 /* MessageInfo.swift in Sources */,
 				1A56505026967A3F000F8151 /* User.swift in Sources */,
 				1A520E642697991800237D29 /* Chat.swift in Sources */,
+				1A17E80126A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
 				1A520E4F269781CD00237D29 /* HomePage.swift in Sources */,
 				1A520E692697998100237D29 /* ChatMessage.swift in Sources */,
 				1A56506626969D96000F8151 /* SignUpPage.swift in Sources */,
@@ -560,6 +601,7 @@
 				1A520E552697859400237D29 /* MessageInfo.swift in Sources */,
 				1A56505126967A3F000F8151 /* User.swift in Sources */,
 				1A520E652697991800237D29 /* Chat.swift in Sources */,
+				1A17E80226A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
 				1A520E50269781CD00237D29 /* HomePage.swift in Sources */,
 				1A520E6A2697998100237D29 /* ChatMessage.swift in Sources */,
 				1A56506726969D96000F8151 /* SignUpPage.swift in Sources */,

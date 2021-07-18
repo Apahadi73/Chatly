@@ -10,24 +10,29 @@ import SwiftUI
 struct HomePage: View {
     @State var sfText: String = ""
     @State var messageList: [MessageInfo] = dummyMList
+    @State private var isProfilePresented = false
     @AppStorage("pageShown") var shownPage = ShownPage.HomePage
+    let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
     
     var body: some View {
         NavigationView{
             VStack{
                 HStack() {
-                    Button(action: {
-                        print("Profile section clicked")
-                    }, label: {
-                        Image("avatar-1")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:50)
-                            .clipShape(Circle())
-                            .foregroundColor(.white)
-                            .padding(.bottom,8)
-                            .padding(.leading,16)
-                    }) //-Button
+                    Button {
+                        isProfilePresented = true
+                    } label: {
+                        if let avatar = user?.avatar{
+                            Image(avatar)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height:50)
+                                .clipShape(Circle())
+                                .foregroundColor(.white)
+                                .padding(.bottom,8)
+                                .padding(.leading,16)
+                        }
+                    }//-Button
+                    
                     Spacer(minLength: 0)
                     Text("Home")
                         .font(.title)
@@ -36,7 +41,8 @@ struct HomePage: View {
                         .padding(.bottom,8)
                     Spacer(minLength: 0)
                     Button(action: {
-                        shownPage = ShownPage.SignUpPage
+                        shownPage = ShownPage.LoginPage
+                        UserDefaults.standard.removeObject(forKey: "User")
                     }, label: {
                         Text("Logout")
                             .foregroundColor(.white)
@@ -83,6 +89,9 @@ struct HomePage: View {
             .navigationTitle("")
             .edgesIgnoringSafeArea([.top,.bottom])
         }//- NavigationView
+        .sheet(isPresented: $isProfilePresented) {
+            UserProfileInfo()
+        }
     }
 }
 
