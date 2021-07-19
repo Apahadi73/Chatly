@@ -1,17 +1,17 @@
 //
-//  HomePage.swift
+//  AddPeopleView.swift
 //  Chatly
 //
-//  Created by Amir Pahadi on 7/8/21.
+//  Created by Amir Pahadi on 7/18/21.
 //
 
 import SwiftUI
 
-struct HomePage: View {
+struct AddPeopleView: View {
     @State var sfText: String = ""
     @State var messageList: [MessageInfo] = dummyMList
     @State private var isProfilePresented = false
-    @AppStorage("pageShown") var shownPage = ShownPage.HomePage
+    @AppStorage("pageShown") var shownPage = ShownPage.AddPeopleView
     let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
     
     var body: some View {
@@ -19,22 +19,16 @@ struct HomePage: View {
             VStack{
                 HStack() {
                     Button {
-                        isProfilePresented = true
+                        shownPage = ShownPage.HomePage
                     } label: {
-                        if let avatar = user?.avatar{
-                            Image(avatar)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:50)
-                                .clipShape(Circle())
-                                .foregroundColor(.white)
-                                .padding(.bottom,8)
-                                .padding(.leading,16)
-                        }
+                        Text("Home")
+                            .foregroundColor(.white)
+                            .padding(.bottom,8)
+                            .padding(.leading,16)
                     }//-Button
                     
                     Spacer(minLength: 0)
-                    Text("Home")
+                    Text("Find Friends")
                         .font(.title)
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
@@ -70,7 +64,7 @@ struct HomePage: View {
                                 print("messagelist refilled")
                                 messageList = dummyMList
                             }
-                    }
+                        }
                 }//-HStack
                 .padding()
                 .background(Color.lightBlue.opacity(0.32))
@@ -78,26 +72,19 @@ struct HomePage: View {
                 .padding(.horizontal)
                 .padding(.top)
 
-                List(messageList,id:\.id){ item in
-                    NavigationLink(
-                        destination: ChatPage(),
-                        label: {
-                            UserMessageInfo(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
-                        })
+                List(messageList,id:\.id){ user in
+                    RequestView(avatar: user.avatar, userName: user.userName)
                 }//-List
             } //-VStack
             .navigationBarHidden(true)
             .navigationTitle("")
             .edgesIgnoringSafeArea([.top,.bottom])
         }//- NavigationView
-        .sheet(isPresented: $isProfilePresented) {
-            UserProfileInfo()
-        }
     }
 }
 
-struct HomePage_Previews: PreviewProvider {
+struct AddPeopleView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePage()
+        AddPeopleView()
     }
 }

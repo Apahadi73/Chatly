@@ -21,6 +21,10 @@ struct ContentView: View {
         else if (shownPage == ShownPage.HomePage && user != nil ){
             HomePage()
         }
+        
+        else if (shownPage == ShownPage.AddPeopleView && user != nil ){
+            AddPeopleView()
+        }
     }
 }
 
@@ -35,5 +39,6 @@ enum ShownPage: Int{
     case SignUpPage = 1
     case HomePage = 2
     case ChatPage = 3
+    case AddPeopleView = 4
 }
 

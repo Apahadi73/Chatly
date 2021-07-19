@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseDatabase
 
 struct LoginPage: View {
 //  MARK- PROPERTIES
@@ -17,6 +18,7 @@ struct LoginPage: View {
     @State private var isLoading = false
     //  stores the info about the page shown on the app screen
     @AppStorage("pageShown") var shownPage = ShownPage.LoginPage
+    private var realDbRef = Database.database().reference()
     
     var body: some View {
         ZStack{
@@ -68,9 +70,25 @@ struct LoginPage: View {
                                 if let user = authResult?.user {
                                     print("User created")
                                     print("UserId: \(user.uid))")
-                                    isLoading = false
-    //                                  takes user to the homepage
-                                    shownPage = ShownPage.HomePage
+                                    realDbRef.child("chatlyUsers").child(user.uid).child("usersInfo").getData { error, dataSnapshot in
+                                        if let error = error{
+                                            print("Error getting user info \(error)")
+                                        }
+                                        else if dataSnapshot.exists() {
+                                            print("Got User information")
+                                            print(dataSnapshot)
+                                            let data = dataSnapshot.value as! Dictionary<String, String>
+//                                            let userInfo = data as! User
+                                            let userInfo = User(avatar: data["avatar"]!, email: data["email"]!, dateJoined: data["dateJoined"]!, uid: data["uid"]!, userName: data["userName"]!)
+                                            //stores user info into UserDefaults
+                                            UserDefaults.standard.storeCodableObjc(data: userInfo, forKey: "User")
+                                            isLoading = false
+            //                              takes user to the homepage
+                                            shownPage = ShownPage.HomePage
+                                        } else {
+                                            print("No userInfo available")
+                                        }
+                                    }
                                 }
                             }
                         }, label: {

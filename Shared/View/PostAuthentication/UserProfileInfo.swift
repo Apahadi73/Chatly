@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserProfileInfo: View {
     let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
+    @AppStorage("pageShown") var shownPage = ShownPage.HomePage
     
     var body: some View {
         ScrollView{
@@ -28,7 +29,7 @@ struct UserProfileInfo: View {
                             }
                             if let email = user?.email{
                                 Text(email)
-                                    .font(.subheadline)
+                                    .foregroundColor(Color.secondary)
                                     .padding(.bottom,16)
                             }
                         }
@@ -52,10 +53,10 @@ struct UserProfileInfo: View {
                         }
                         Divider()
                         Button {
-                            print("Add Friend Btn Clicked")
+                            shownPage = ShownPage.AddPeopleView
                         } label: {
                             HStack{
-                                Text("Add Friend")
+                                Text("Add People")
                                     .padding(.vertical,4)
                                 Spacer()
                                 Image(systemName: "arrow.right")

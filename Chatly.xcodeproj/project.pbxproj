@@ -43,6 +43,18 @@
 		1A17E80026A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
 		1A17E80126A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
 		1A17E80226A3B33200E8A7F8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */; };
+		1A17E80426A4CA7500E8A7F8 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80326A4CA7500E8A7F8 /* FriendView.swift */; };
+		1A17E80526A4CA7500E8A7F8 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80326A4CA7500E8A7F8 /* FriendView.swift */; };
+		1A17E80626A4CA7500E8A7F8 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80326A4CA7500E8A7F8 /* FriendView.swift */; };
+		1A17E80726A4CA7500E8A7F8 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80326A4CA7500E8A7F8 /* FriendView.swift */; };
+		1A17E80926A4CA9900E8A7F8 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80826A4CA9900E8A7F8 /* RequestView.swift */; };
+		1A17E80A26A4CA9900E8A7F8 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80826A4CA9900E8A7F8 /* RequestView.swift */; };
+		1A17E80B26A4CA9900E8A7F8 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80826A4CA9900E8A7F8 /* RequestView.swift */; };
+		1A17E80C26A4CA9900E8A7F8 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80826A4CA9900E8A7F8 /* RequestView.swift */; };
+		1A17E80E26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */; };
+		1A17E80F26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */; };
+		1A17E81026A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */; };
+		1A17E81126A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */; };
 		1A520E4D269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
 		1A520E4E269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
 		1A520E4F269781CD00237D29 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E4C269781CD00237D29 /* HomePage.swift */; };
@@ -118,6 +130,9 @@
 		1A17E7F726A3896400E8A7F8 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		1A17E7F926A38D0B00E8A7F8 /* LoadingSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
 		1A17E7FE26A3B33200E8A7F8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		1A17E80326A4CA7500E8A7F8 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		1A17E80826A4CA9900E8A7F8 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
+		1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleView.swift; sourceTree = "<group>"; };
 		1A520E4C269781CD00237D29 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		1A520E512697859400237D29 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		1A520E572697863800237D29 /* UserMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageInfo.swift; sourceTree = "<group>"; };
@@ -218,6 +233,7 @@
 				1A17E7AE26A383C600E8A7F8 /* Profile */,
 				1A520E4C269781CD00237D29 /* HomePage.swift */,
 				1A520E5C2697969300237D29 /* ChatPage.swift */,
+				1A17E80D26A4CBE100E8A7F8 /* AddPeopleView.swift */,
 			);
 			path = PostAuthentication;
 			sourceTree = "<group>";
@@ -229,6 +245,8 @@
 				1A520E662697998100237D29 /* ChatMessage.swift */,
 				1A17E77B2697A87500E8A7F8 /* ChatBubble.swift */,
 				1A17E7F926A38D0B00E8A7F8 /* LoadingSpinner.swift */,
+				1A17E80326A4CA7500E8A7F8 /* FriendView.swift */,
+				1A17E80826A4CA9900E8A7F8 /* RequestView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -531,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A17E80926A4CA9900E8A7F8 /* RequestView.swift in Sources */,
 				1A56506426969D96000F8151 /* SignUpPage.swift in Sources */,
 				1A17E77C2697A87500E8A7F8 /* ChatBubble.swift in Sources */,
 				1A17E7B026A383D900E8A7F8 /* UserProfileInfo.swift in Sources */,
@@ -541,6 +560,7 @@
 				1A520E5D2697969300237D29 /* ChatPage.swift in Sources */,
 				1A56505E2696805B000F8151 /* Color.swift in Sources */,
 				1A520E622697991800237D29 /* Chat.swift in Sources */,
+				1A17E80E26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E522697859400237D29 /* MessageInfo.swift in Sources */,
 				1A520E4D269781CD00237D29 /* HomePage.swift in Sources */,
 				1A17E7F826A3896400E8A7F8 /* FUser.swift in Sources */,
@@ -548,6 +568,7 @@
 				1A17E7FF26A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
 				1A520E582697863800237D29 /* UserMessageInfo.swift in Sources */,
 				1A56504E26967A3F000F8151 /* User.swift in Sources */,
+				1A17E80426A4CA7500E8A7F8 /* FriendView.swift in Sources */,
 				1A17E7F626A387DE00E8A7F8 /* GlobalProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,11 +577,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A17E80A26A4CA9900E8A7F8 /* RequestView.swift in Sources */,
 				1A56506526969D96000F8151 /* SignUpPage.swift in Sources */,
 				1A17E77D2697A87500E8A7F8 /* ChatBubble.swift in Sources */,
 				1A56505926967C4D000F8151 /* LoginPage.swift in Sources */,
 				1A56503A26967500000F8151 /* ContentView.swift in Sources */,
 				1A56503826967500000F8151 /* ChatlyApp.swift in Sources */,
+				1A17E80F26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E5E2697969300237D29 /* ChatPage.swift in Sources */,
 				1A56505F2696805B000F8151 /* Color.swift in Sources */,
 				1A520E632697991800237D29 /* Chat.swift in Sources */,
@@ -569,6 +592,7 @@
 				1A520E682697998100237D29 /* ChatMessage.swift in Sources */,
 				1A520E592697863800237D29 /* UserMessageInfo.swift in Sources */,
 				1A17E80026A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
+				1A17E80526A4CA7500E8A7F8 /* FriendView.swift in Sources */,
 				1A56504F26967A3F000F8151 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,11 +601,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A17E80626A4CA7500E8A7F8 /* FriendView.swift in Sources */,
 				1A520E5A2697863800237D29 /* UserMessageInfo.swift in Sources */,
 				1A520E542697859400237D29 /* MessageInfo.swift in Sources */,
 				1A56505026967A3F000F8151 /* User.swift in Sources */,
 				1A520E642697991800237D29 /* Chat.swift in Sources */,
+				1A17E80B26A4CA9900E8A7F8 /* RequestView.swift in Sources */,
 				1A17E80126A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
+				1A17E81026A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E4F269781CD00237D29 /* HomePage.swift in Sources */,
 				1A520E692697998100237D29 /* ChatMessage.swift in Sources */,
 				1A56506626969D96000F8151 /* SignUpPage.swift in Sources */,
@@ -597,11 +624,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A17E80726A4CA7500E8A7F8 /* FriendView.swift in Sources */,
 				1A520E5B2697863800237D29 /* UserMessageInfo.swift in Sources */,
 				1A520E552697859400237D29 /* MessageInfo.swift in Sources */,
 				1A56505126967A3F000F8151 /* User.swift in Sources */,
 				1A520E652697991800237D29 /* Chat.swift in Sources */,
+				1A17E80C26A4CA9900E8A7F8 /* RequestView.swift in Sources */,
 				1A17E80226A3B33200E8A7F8 /* UserDefaults.swift in Sources */,
+				1A17E81126A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E50269781CD00237D29 /* HomePage.swift in Sources */,
 				1A520E6A2697998100237D29 /* ChatMessage.swift in Sources */,
 				1A56506726969D96000F8151 /* SignUpPage.swift in Sources */,
