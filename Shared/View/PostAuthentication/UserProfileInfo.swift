@@ -9,7 +9,9 @@ import SwiftUI
 
 struct UserProfileInfo: View {
     let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
-    @AppStorage("pageShown") var shownPage = ShownPage.HomePage
+//    @AppStorage("pageShown") var shownPage = ShownPage.HomePage
+    var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
+    @State private var showModal: Bool = false
     
     var body: some View {
         ScrollView{
@@ -53,7 +55,9 @@ struct UserProfileInfo: View {
                         }
                         Divider()
                         Button {
-                            shownPage = ShownPage.AddPeopleView
+//                            shownPage = ShownPage.AddPeopleView
+                            hapticImpact.impactOccurred()
+                            showModal = true
                         } label: {
                             HStack{
                                 Text("Add People")
@@ -98,6 +102,9 @@ struct UserProfileInfo: View {
         }
         .background(Color.cLightGray)
         .ignoresSafeArea(.all)
+        .sheet(isPresented: self.$showModal) {
+          AddPeopleView()
+        }
     }
 }
 

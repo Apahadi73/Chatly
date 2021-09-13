@@ -266,13 +266,13 @@
 		1A56500D269674FA000F8151 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				1A17E7F426A387C600E8A7F8 /* Utils */,
-				1A17E780269DEFE000E8A7F8 /* GoogleService-Info.plist */,
 				1A56505C2696804A000F8151 /* Extensions */,
-				1A56500E269674FA000F8151 /* ChatlyApp.swift */,
 				1A56504C26967A25000F8151 /* Model */,
 				1A56504B26967880000F8151 /* View */,
+				1A17E7F426A387C600E8A7F8 /* Utils */,
 				1A56501026967500000F8151 /* Assets.xcassets */,
+				1A17E780269DEFE000E8A7F8 /* GoogleService-Info.plist */,
+				1A56500E269674FA000F8151 /* ChatlyApp.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

@@ -11,41 +11,37 @@ struct AddPeopleView: View {
     @State var sfText: String = ""
     @State var messageList: [MessageInfo] = dummyMList
     @State private var isProfilePresented = false
+    @State private var pulsate: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     @AppStorage("pageShown") var shownPage = ShownPage.AddPeopleView
     let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
     
     var body: some View {
         NavigationView{
             VStack{
-                HStack() {
-                    Button {
-                        shownPage = ShownPage.HomePage
-                    } label: {
-                        Text("Home")
-                            .foregroundColor(.white)
-                            .padding(.bottom,8)
-                            .padding(.leading,16)
-                    }//-Button
-                    
+                HStack(alignment: .center) {
                     Spacer(minLength: 0)
-                    Text("Find Friends")
+                    Text("Add Friends")
                         .font(.title)
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
                         .padding(.bottom,8)
                     Spacer(minLength: 0)
                     Button(action: {
-                        shownPage = ShownPage.LoginPage
-                        UserDefaults.standard.removeObject(forKey: "User")
+                      // ACTION
+                      self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Logout")
-                            .foregroundColor(.white)
-                            .padding()
-                    })//-Button
+                      Image(systemName: "chevron.down.circle.fill")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                        .shadow(radius: 4)
+                        .opacity(self.pulsate ? 1 : 0.6)
+                        .scaleEffect(self.pulsate ? 1.2 : 0.8, anchor: .center)
+                    })
+                      .padding(.trailing, 20)
                 } //-HStack
                 .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
                 .background(Color.darkBlue)
-                .edgesIgnoringSafeArea(.top)
                 
                 HStack{
                     Image(systemName: "magnifyingglass")
@@ -79,7 +75,9 @@ struct AddPeopleView: View {
             .navigationBarHidden(true)
             .navigationTitle("")
             .edgesIgnoringSafeArea([.top,.bottom])
+            
         }//- NavigationView
+        
     }
 }
 
