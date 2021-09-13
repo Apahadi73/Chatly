@@ -103,6 +103,7 @@
 		1A56506526969D96000F8151 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56506326969D95000F8151 /* SignUpPage.swift */; };
 		1A56506626969D96000F8151 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56506326969D95000F8151 /* SignUpPage.swift */; };
 		1A56506726969D96000F8151 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56506326969D95000F8151 /* SignUpPage.swift */; };
+		1A9B4C1A26EF9A9C00C75D1A /* AddFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B4C1926EF9A9C00C75D1A /* AddFriendsViewModel.swift */; };
 		1AD162E626EEFBD50004F4C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD162E526EEFBD50004F4C3 /* LoginViewModel.swift */; };
 		1AD1631326EF07010004F4C3 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1631226EF07010004F4C3 /* DummyData.swift */; };
 /* End PBXBuildFile section */
@@ -159,6 +160,7 @@
 		1A56505726967C4D000F8151 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		1A56505D2696805B000F8151 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1A56506326969D95000F8151 /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
+		1A9B4C1926EF9A9C00C75D1A /* AddFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewModel.swift; sourceTree = "<group>"; };
 		1AD162E526EEFBD50004F4C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1AD1631226EF07010004F4C3 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				1AD162EB26EEFC940004F4C3 /* Authentication */,
+				1A9B4C1926EF9A9C00C75D1A /* AddFriendsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				1A520E5D2697969300237D29 /* ChatPageView.swift in Sources */,
 				1A56505E2696805B000F8151 /* Color.swift in Sources */,
 				1A520E622697991800237D29 /* Chat.swift in Sources */,
+				1A9B4C1A26EF9A9C00C75D1A /* AddFriendsViewModel.swift in Sources */,
 				1A17E80E26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E522697859400237D29 /* MessageInfo.swift in Sources */,
 				1A520E4D269781CD00237D29 /* HomePage.swift in Sources */,
