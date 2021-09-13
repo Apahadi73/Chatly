@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingSpinner: View {
+struct LoadingSpinnerView: View {
     var body: some View {
         VStack{
             ProgressView()
@@ -19,6 +19,6 @@ struct LoadingSpinner: View {
 
 struct LoadingSpinner_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingSpinner()
+        LoadingSpinnerView()
     }
 }

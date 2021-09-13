@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ChatPage: View {
+struct ChatPageView: View {
+    var secondUserName: String
     @State var tfMessage: String = ""
     @AppStorage("current_user") var CUser = 1
     @AppStorage("pageShown") var shownPage = ShownPage.ChatPage
@@ -15,33 +16,32 @@ struct ChatPage: View {
     
     var body: some View {
         VStack(spacing:0){
-            HStack() {
+            HStack(alignment: .center) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("Back")
-                        .fontWeight(.light)
-                        .foregroundColor(.white)
-                        .padding(.leading,16)
+                    Image(systemName: "chevron.left")
+                        .font(.headline)
+                        .foregroundColor(Color.white)
+                        .padding(.leading, 16)
                 })
                 Spacer(minLength: 0)
-                Text("User \(CUser)")
-                    .font(.title)
+                Text(secondUserName)
+                    .font(.headline)
                     .fontWeight(.heavy)
                     .foregroundColor(.white)
-                    .padding(.bottom,8)
                 Spacer(minLength: 0)
             }
             .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
+            .padding(.bottom, 8)
             .background(Color.darkBlue)
             .edgesIgnoringSafeArea(.top)
-
             
             ScrollViewReader{ reader in
                 ScrollView{
                     VStack(){
                         ForEach(dummyChats,id:\.id){ chat in
-                            ChatMessage(message: chat.text, avatar: chat.avatar,userId: chat.uid)
+                            ChatMessageView(message: chat.text, avatar: chat.avatar,userId: chat.uid)
                         }
                     }
                 }
@@ -76,6 +76,6 @@ struct ChatPage: View {
 
 struct ChatPage_Previews: PreviewProvider {
     static var previews: some View {
-        ChatPage()
+        ChatPageView(secondUserName: "Amir")
     }
 }

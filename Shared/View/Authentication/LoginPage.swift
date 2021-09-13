@@ -144,7 +144,7 @@ struct LoginPage: View {
                 Alert(title: Text("Log In Failed"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
             if isLoading {
-                LoadingSpinner()
+                LoadingSpinnerView()
             }
         }
     }

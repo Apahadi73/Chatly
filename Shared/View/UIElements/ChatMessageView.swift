@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatMessage: View {
+struct ChatMessageView: View {
 //  MARK - PROPERTIES
     var message: String
     var avatar: String
@@ -51,6 +51,6 @@ struct ChatMessage: View {
 
 struct ChatMessage_Previews: PreviewProvider {
     static var previews: some View {
-        ChatMessage(message: "Hi there  ", avatar: "avatar-1",userId: 2)
+        ChatMessageView(message: "Hi there  ", avatar: "avatar-1",userId: 2)
     }
 }

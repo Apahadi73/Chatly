@@ -16,7 +16,7 @@ struct HomePage: View {
     
     var body: some View {
         NavigationView{
-            VStack{
+            VStack(alignment:.leading) {
                 HStack() {
                     Button {
                         isProfilePresented = true
@@ -53,38 +53,43 @@ struct HomePage: View {
                 .background(Color.darkBlue)
                 .edgesIgnoringSafeArea(.top)
                 
-                HStack{
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .foregroundColor(Color.gray)
-                        .frame(width: 20, height: 20, alignment: .center)
-                    TextField("Search", text: $sfText)
-                        .onChange(of: sfText) {
-                            print($0)
-                            if(messageList.count>=0){
-                                messageList = dummyMList.filter { messageInfo in
-                                    messageInfo.userName.contains(sfText)
+                ScrollView(.vertical, showsIndicators: false) {
+                    HStack{
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .foregroundColor(Color.gray)
+                            .frame(width: 20, height: 20, alignment: .center)
+                        TextField("Search", text: $sfText)
+                            .onChange(of: sfText) {
+                                print($0)
+                                if(messageList.count>=0){
+                                    messageList = dummyMList.filter { messageInfo in
+                                        messageInfo.userName.contains(sfText)
+                                    }
                                 }
+                                else {
+                                    print("messagelist refilled")
+                                    messageList = dummyMList
+                                }
+                        }
+                    }//-HStack
+                    .padding()
+                    .background(Color.lightBlue.opacity(0.32))
+                    .cornerRadius(15)
+                    .padding(.horizontal)
+                    .padding(.top)
+                
+                    VStack(alignment: .leading, spacing: 20) {
+                      ForEach(messageList,id:\.id) { item in
+                        NavigationLink(
+                            destination: ChatPageView(secondUserName: item.userName),
+                            label: {
+                                ChatLinkView(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
                             }
-                            else {
-                                print("messagelist refilled")
-                                messageList = dummyMList
-                            }
+                        )
+                      }
                     }
-                }//-HStack
-                .padding()
-                .background(Color.lightBlue.opacity(0.32))
-                .cornerRadius(15)
-                .padding(.horizontal)
-                .padding(.top)
-
-                List(messageList,id:\.id){ item in
-                    NavigationLink(
-                        destination: ChatPage(),
-                        label: {
-                            UserMessageInfo(userName: item.userName, lastMessage: item.lastMessage, avatar: item.avatar)
-                        })
-                }//-List
+                }
             } //-VStack
             .navigationBarHidden(true)
             .navigationTitle("")

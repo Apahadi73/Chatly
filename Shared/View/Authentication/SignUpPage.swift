@@ -168,7 +168,7 @@ struct SignUpPage: View {
                     Alert(title: Text("Sign Up Failed"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                 }
                 if isLoading {
-                    LoadingSpinner()
+                    LoadingSpinnerView()
                 }
             }//-ZStack
         }
