@@ -9,37 +9,32 @@ import SwiftUI
 
 struct UserProfileInfo: View {
     let user = UserDefaults.standard.fetchCodableObjc(dataType: User.self, key: "User")
-//    @AppStorage("pageShown") var shownPage = ShownPage.HomePage
     var hapticImpact = UIImpactFeedbackGenerator(style: .heavy)
     @State private var showModal: Bool = false
     
     var body: some View {
-        ScrollView{
-            VStack(alignment:.leading){
-                HStack(alignment:.center){
-                    Spacer()
-                        VStack(alignment:.center){
-                            Image(user?.avatar ?? "avatar-4")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:100)
-                                .clipShape(Circle())
-                            if let name = user?.userName{
-                                Text(name)
-                                    .font(.title)
-                                    .bold()
-                            }
-                            if let email = user?.email{
-                                Text(email)
-                                    .foregroundColor(Color.secondary)
-                                    .padding(.bottom,16)
-                            }
-                        }
-                    Spacer()
-                }
+        VStack(alignment: .center, spacing: 0) {
+            VStack(alignment: .center, spacing: 5) {
+                Image(user?.avatar ?? "avatar-4")
+                  .resizable()
+                  .scaledToFit()
+                  .padding(.top)
+                  .frame(width: 100, height: 100, alignment: .center)
+                  .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x: 0, y: 4)
                 
-                Section(header: Text("People").font(.title2).bold().padding()
-                ){
+                if let name = user?.userName{
+                    Text(name)
+                        .font(.system(.title, design: .serif))
+                        .fontWeight(.bold)
+                }
+                if let email = user?.email{
+                    Text(email)
+                        .foregroundColor(Color.secondary)
+                        .padding(.bottom,16)
+                }
+            }
+            Form {
+                Section(header: Text("People")){
                     VStack{
                         Button {
                             print("View Friends Btn Clicked")
@@ -55,7 +50,6 @@ struct UserProfileInfo: View {
                         }
                         Divider()
                         Button {
-//                            shownPage = ShownPage.AddPeopleView
                             hapticImpact.impactOccurred()
                             showModal = true
                         } label: {
@@ -95,12 +89,10 @@ struct UserProfileInfo: View {
                             .padding(.vertical,4)
                         }
                     }
-                    .background(Color.white)
                     .padding()
                 }
             }
         }
-        .background(Color.cLightGray)
         .ignoresSafeArea(.all)
         .sheet(isPresented: self.$showModal) {
           AddPeopleView()

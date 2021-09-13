@@ -74,7 +74,7 @@ struct HomePage: View {
                         }
                     }//-HStack
                     .padding()
-                    .background(Color.lightBlue.opacity(0.32))
+                    .background(Color.lightBlue.opacity(0.50))
                     .cornerRadius(15)
                     .padding(.horizontal)
                     .padding(.top)
