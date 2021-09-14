@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct RequestView: View {
-    @State var avatar: String
-    @State var userName: String
+    let user: User
+    let viewModel: AddFriendsViewModel
     
     var body: some View {
         HStack{
-            Image(avatar)
+            Image(user.avatar)
                 .resizable()
                 .scaledToFit()
                 .frame(height:32)
                 .clipShape(Circle())
-            Text(userName)
+            Text(user.userName)
             Spacer()
             Button(action: {
-                print("Friends button clicked")
+                viewModel.addNewFriend(uid: user.uid)
             }, label: {
                 Text("Add")
                     .padding()
@@ -33,11 +33,5 @@ struct RequestView: View {
             }).buttonStyle(PlainButtonStyle())
             
         }
-    }
-}
-
-struct RequestView_Previews: PreviewProvider {
-    static var previews: some View {
-        RequestView(avatar: "avatar-1", userName: "userName")
     }
 }
