@@ -79,6 +79,7 @@
 		1A520E682697998100237D29 /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E662697998100237D29 /* ChatMessageView.swift */; };
 		1A520E692697998100237D29 /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E662697998100237D29 /* ChatMessageView.swift */; };
 		1A520E6A2697998100237D29 /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A520E662697998100237D29 /* ChatMessageView.swift */; };
+		1A54F6CE26F09DCA000194B1 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A54F6CD26F09DCA000194B1 /* FriendRequest.swift */; };
 		1A56502A26967500000F8151 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56502926967500000F8151 /* Tests_iOS.swift */; };
 		1A56503526967500000F8151 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56503426967500000F8151 /* Tests_macOS.swift */; };
 		1A56503726967500000F8151 /* ChatlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56500E269674FA000F8151 /* ChatlyApp.swift */; };
@@ -142,6 +143,7 @@
 		1A520E5C2697969300237D29 /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
 		1A520E612697991700237D29 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		1A520E662697998100237D29 /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
+		1A54F6CD26F09DCA000194B1 /* FriendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
 		1A56500E269674FA000F8151 /* ChatlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatlyApp.swift; sourceTree = "<group>"; };
 		1A56500F269674FA000F8151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A56501026967500000F8151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				1A520E512697859400237D29 /* MessageInfo.swift */,
 				1A520E612697991700237D29 /* Chat.swift */,
 				1A17E7F726A3896400E8A7F8 /* FUser.swift */,
+				1A54F6CD26F09DCA000194B1 /* FriendRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				1A17E80E26A4CBE100E8A7F8 /* AddPeopleView.swift in Sources */,
 				1A520E522697859400237D29 /* MessageInfo.swift in Sources */,
 				1A520E4D269781CD00237D29 /* HomePage.swift in Sources */,
+				1A54F6CE26F09DCA000194B1 /* FriendRequest.swift in Sources */,
 				1A17E7F826A3896400E8A7F8 /* FUser.swift in Sources */,
 				1AD1631326EF07010004F4C3 /* DummyData.swift in Sources */,
 				1A520E672697998100237D29 /* ChatMessageView.swift in Sources */,

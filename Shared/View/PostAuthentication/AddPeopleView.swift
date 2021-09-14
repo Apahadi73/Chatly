@@ -67,7 +67,7 @@ struct AddPeopleView: View {
                     RequestView(user: user,viewModel: viewModel)
                 }//-List
                 .onAppear(perform: {
-                    self.viewModel.fetchUsers()
+                    self.viewModel.fetchNewUser()
                 })
             } //-VStack
             .navigationBarHidden(true)

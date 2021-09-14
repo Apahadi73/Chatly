@@ -20,7 +20,7 @@ class AddFriendsViewModel: ObservableObject {
     @Published var alertMessage:String = ""
     @Published var showingAlert = false
 
-    func fetchUsers() {
+    func fetchNewUser() {
         self.dbRef.child("chatlyUsers").getData { (error, snapshot) in
             if let error = error {
                 print("Error getting data \(error)")
@@ -38,6 +38,7 @@ class AddFriendsViewModel: ObservableObject {
                                     print(error)
                                 }
                             }
+                            
                         }
                     }
                     self.fillUserInfoList()
@@ -50,13 +51,24 @@ class AddFriendsViewModel: ObservableObject {
     }
     
     func addNewFriend(uid:String) {
-        print("Add button clicked for user: \(uid)")
-        if let userId = user?.uid {
-            let data = ["uid": userId ]
-            // TODO: Add error handler later on
-            self.dbRef.child("chatlyUsers").child(userId).child("friendRequests").setValue(data) { cError, cRef in}
-        }
+        let data = ["uid": uid ]
+        // TODO: Add error handler later on
+        self.dbRef.child("chatlyUsers").child(uid).child("friendRequests").updateChildValues(data) { cError, cRef in}
     }
+    
+//
+//    func checkIfFriend(userInfo: NSDictionary) -> Bool {
+//        if let friendRequest = userInfo["friendRequests"] {
+//            do {
+//                let jsonData = try JSONSerialization.data(withJSONObject: friendRequest, options: [])
+//                let frItem = try JSONDecoder().decode(FriendRequest.self, from: jsonData)
+//                return frItem
+//            } catch let error {
+//                print(error)
+//            }
+//        }
+//        return false
+//    }
     
     func fillUserInfoList(){
         DispatchQueue.main.async {
